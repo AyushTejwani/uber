@@ -18,6 +18,7 @@ public class LoginController  {
 
         this.username=scan.nextLine();
     }
+
     public void setPassword()
     {
         System.out.println("Enter your password");
@@ -39,7 +40,7 @@ public class LoginController  {
             stmt.setString(2, this.password);
             ResultSet rs = stmt.executeQuery();
             while (rs.next())
-                System.out.println("Welcome " + rs.getString(1)+ "you are logged in! ");
+                System.out.println("Welcome " + rs.getString(1)+ " you are logged in! ");
         }
         catch (SQLException e)
         {

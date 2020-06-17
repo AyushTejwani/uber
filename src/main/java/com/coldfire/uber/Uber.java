@@ -30,7 +30,10 @@ public class Uber {
             }
             case 2:
             {
-
+                Register register=new Register();
+                register.setUsername();
+                register.setPassword();
+                register.store();
                 break;
             }
             case 3:
