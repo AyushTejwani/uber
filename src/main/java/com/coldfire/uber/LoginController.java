@@ -26,7 +26,10 @@ public class LoginController  {
 
         this.password=scan.nextLine();
     }
-
+    public String getUsername()
+    {
+        return this.username;
+    }
 
     public void connecttodatabase() {
 
