@@ -1,8 +1,6 @@
 package com.coldfire.uber;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class Ridedetails {
@@ -19,7 +17,36 @@ public class Ridedetails {
         Scanner scan = new Scanner(System.in);
         this.pickup_location = scan.nextLine();
     }
+    public void waiting()
+    {
+        DatabaseConnector dcm = new DatabaseConnector("127.0.0.1", "uber", "postgres", "Ayush81298!");
 
+        try {
+            Connection connection = dcm.getConnection();
+            while (true) {
+
+                String sql = "SELECT completed FROM ridedetails WHERE username=?";
+                PreparedStatement stmt = connection.prepareStatement(sql);
+                stmt.setString(1, this.username);
+                ResultSet rs = stmt.executeQuery();
+                rs.next();
+                if (rs.getBoolean(1) == true)
+                {
+                    System.out.println("Found you a ride!");
+                    break;
+                }
+                continue;
+
+            }
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+
+
+
+    }
     public void setDrop_location() {
         System.out.println("Enter your drop location");
         Scanner scan = new Scanner(System.in);

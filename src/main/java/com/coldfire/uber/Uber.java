@@ -31,6 +31,7 @@ public class Uber {
                     rd.setPickup_location();
                     rd.setDrop_location();
                     rd.ridedetialstodbb();
+                    rd.waiting();
 
 
                     break;
